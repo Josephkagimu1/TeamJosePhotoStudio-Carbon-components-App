@@ -1,11 +1,140 @@
-import React from 'react'
+import React from "react";
+import {
+  Content,
+  Grid,
+  Column,
+  Tile,
+  Button,
+} from "carbon-components-react";
+import "carbon-components/css/carbon-components.min.css";
 
-export default function Samplephotos() {
+// Sample images (replace with your real images)
+const images = [
+  {
+    id: 1,
+    src: "/images/8.jfif",
+    name: "home.jpg",
+  },
+  {
+    id: 2,
+    src: "/images/7.jfif",
+    name: "camera-1.jpg",
+  },
+  {
+    id: 3,
+    src: "/images/6.jfif",
+    name: "camera2.jpg",
+  },
+  {
+    id: 4,
+    src: "/images/5.jfif",
+    name: "Event-1.jpg",
+  },
+  {
+    id: 4,
+    src: "/images/2.jfif",
+    name: "Event-2.jpg",
+  },
+  {
+    id: 4,
+    src: "/images/3.jfif",
+    name: "Event-3.jpg",
+  },
+  {
+    id: 4,
+    src: "/images/9.jfif",
+    name: "Event-4.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/back (1).jfif",
+    name: "background-1.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/back (1).jpg",
+    name: "Event-1.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/back (2).jfif",
+    name: "Event-1.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/back (2).jpg",
+    name: "Event-1.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/back (3).jpg",
+    name: "Event-1.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/Fotógrafo.jfif",
+    name: "Event-1.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/Camera shutter Photos - Download Free High-Quality Pictures _ Freepik.jfif",
+    name: "Event-1.jpg",
+  },
+   {
+    id: 4,
+    src: "/images/back-b.jfif",
+    name: "Event-1.jpg",
+  },
+  
+];
+
+export default function Gallery() {
   return (
-    <div>
-      <h1>This is Sample Photos Page</h1>
-      <h1>This is Sample Photos Page</h1>
+    <Content>
+      <h1 style={{ marginBottom: "1.5rem" }}>Gallery</h1>
+      <p style={{ marginBottom: "2rem" }}>
+        Browse our recent photography work. Tap an image to download.
+      </p>
 
-    </div>
-  )
+      <Grid fullWidth>
+        {images.map((img) => (
+          <Column key={img.id} lg={4} md={4} sm={4}>
+            <Tile style={{ marginBottom: "1.5rem" }}>
+              <img
+                src={img.src}
+                alt={img.name}
+                style={{
+                  width: "100%",
+                  height: "220px",
+                  objectFit: "cover",
+                  borderRadius: "4px",
+                }}
+              />
+
+              <div
+                style={{
+                  marginTop: "0.75rem",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ fontSize: "0.875rem" }}>{img.name}</span>
+
+                <Button
+                  as="a"
+                  href={img.src}
+                  download={img.name}
+                  kind="ghost"
+                  size="sm"
+                >
+                  Download
+                </Button>
+              </div>
+            </Tile>
+          </Column>
+        ))}
+      </Grid>
+    </Content>
+  );
 }

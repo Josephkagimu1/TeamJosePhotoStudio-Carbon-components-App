@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@carbon/grid": "^11.46.0",
+    "@carbon/icons-react": "^11.71.0",
     "@carbon/styles": "^1.95.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -11,6 +12,8 @@
     "@testing-library/user-event": "^13.2.1",
     "carbon-components": "10.58.15",
     "carbon-components-react": "8.67.0",
+    "emailjs-com": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.6",
@@ -19,6 +22,19 @@
     "serve": "^14.2.5",
     "web-vitals": "^2.1.0"
   },
+
+  "moduleNameMapper": {
+  "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/src/__mocks__/fileMock.js",
+  "\\.(css|scss)$": "identity-obj-proxy"
+},
+  
+  "jest": {
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|svg|jfif)$": "<rootDir>/src/__mocks__/fileMock.js",
+    "\\.(css|scss)$": "identity-obj-proxy"
+  }
+},
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
