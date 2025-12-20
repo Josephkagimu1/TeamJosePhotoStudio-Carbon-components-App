@@ -16,3 +16,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+// Added styles
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// prevents words overflow
+h1, p {
+  word-break: break-word;
+}
+

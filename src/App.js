@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logo from './img/logo.png';
-import './App.css';
+// import './App.css';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import Services from './pages/Services';
+import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Otherproucts from './pages/Other-products';
 import Samplephotos from './pages/Sample-photos';
@@ -21,7 +21,8 @@ import {
   SideNavMenu,
   SideNavMenuItem,
   SideNavLink,
-  Content
+  Content,
+  HeaderMenu
 } from 'carbon-components-react';
 
 const App = () => <HeaderContainer render={({
@@ -33,55 +34,70 @@ const App = () => <HeaderContainer render={({
       <Header aria-label="IBM Platform Name">
 
         <HeaderMenuButton aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'} onClick={onClickSideNavExpand} isActive={isSideNavExpanded} aria-expanded={isSideNavExpanded} />
-        <HeaderName as={Link} to="/" prefix="">
+        <HeaderName prefix="">
           <img src={logo} alt='logo' width='100' ></img>
         </HeaderName>
 
         <HeaderNavigation aria-label="IBM [Platform]">
           <HeaderMenuItem as={Link} to="/home">Home</HeaderMenuItem>
           <HeaderMenuItem as={Link} to="/about">About</HeaderMenuItem>
-          <HeaderMenuItem as={Link} to="/services">Services</HeaderMenuItem>
+          <HeaderMenuItem as={Link} to="/services">Gallery</HeaderMenuItem>
           <HeaderMenuItem as={Link} to="/contact">Contact</HeaderMenuItem>
+
+          <HeaderMenu menuLinkName="more" >
+            <HeaderMenuItem as={Link} to="/Otherproucts">Other Products</HeaderMenuItem>
+            <HeaderMenuItem as={Link} to="/Samplephotos">wallpapers - free to use</HeaderMenuItem>
+          </HeaderMenu>
         </HeaderNavigation>
 
       </Header>
 
       {/* This is side Nav */}
-      <SideNav className='SideNav' isFixedNav expanded={true} i ChildOfHeader={false} aria-label="Side navigation">
+      <SideNav
+        expanded={isSideNavExpanded}
+        isPersistent={false}   // IMPORTANT for mobile
+        aria-label="Side navigation"
+      >
+
         <SideNavItems className='text'>
-
-          <SideNavLink to="/Otherproucts" as={Link} >
-            Other Products
+          <SideNavLink to="/Home" as={Link} >
+            Home
           </SideNavLink>
-          <SideNavLink to="Samplephotos" as={Link} >
-            Sample Photos
+          <SideNavLink to="/About" as={Link} >
+            About
+          </SideNavLink>
+          <SideNavLink to="/Services" as={Link} >
+            Gallery
+          </SideNavLink>
+          <SideNavLink to="/Contact" as={Link} >
+            Contact
           </SideNavLink>
 
-          <SideNavMenu title="More">
-            <SideNavMenuItem href="#">
-              Tasks
+          <SideNavMenu title="more">
+            <SideNavMenuItem to="/Otherproucts" as={Link}>
+              Other proucts
             </SideNavMenuItem>
-            <SideNavMenuItem href="#">
-              Events
+            <SideNavMenuItem to="/Samplephotos" as={Link}>
+              wallpapers - free to use
             </SideNavMenuItem>
           </SideNavMenu>
 
         </SideNavItems>
       </SideNav>
 
-    <Content>
-      <Routes>
-        <Route path="/Home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
+      <Content id="main-content">
+        <Routes>
+          <Route path="/Home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
 
-        {/* Side Nav links */}
-        <Route path="/Otherproucts" element={<Otherproucts />} />
-        <Route path="/Samplephotos" element={<Samplephotos />} />
+          {/* Side Nav links */}
+          <Route path="/Otherproucts" element={<Otherproucts />} />
+          <Route path="/Samplephotos" element={<Samplephotos />} />
 
-      </Routes>
-    </Content>
+        </Routes>
+      </Content>
 
     </Router>
 

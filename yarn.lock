@@ -1625,6 +1625,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@carbon/icon-helpers@npm:^10.69.0":
+  version: 10.69.0
+  resolution: "@carbon/icon-helpers@npm:10.69.0"
+  dependencies:
+    "@ibm/telemetry-js": "npm:^1.5.0"
+  checksum: 10c0/51fbc42b7e7584ea18c855a31ade924b30d740ea0af00d9cfcde5caf988d0a1381734bee1b454aa2d8432bdf0ea9fe831cea3814e597483372c4cbef1dcd790b
+  languageName: node
+  linkType: hard
+
 "@carbon/icons-react@npm:^11.70.0":
   version: 11.70.0
   resolution: "@carbon/icons-react@npm:11.70.0"
@@ -1635,6 +1644,19 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 10c0/fb56207af6ddc3b8b1d938a1068182446699683964c9f58005f4442ed21d5f4c1af3369f824354c7b6b73cb0efca964a7c36b4c547b6308fa6c30b25db98743e
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:^11.71.0":
+  version: 11.71.0
+  resolution: "@carbon/icons-react@npm:11.71.0"
+  dependencies:
+    "@carbon/icon-helpers": "npm:^10.69.0"
+    "@ibm/telemetry-js": "npm:^1.5.0"
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    react: ">=16"
+  checksum: 10c0/4fa941974190105e4af524d9152ae42a15c474f5b3a28cf192f367ee2e041938fb57a110107c2b50575d9a2d2f478632bf2ab3cdd15d2451969cc2fd3fcfaf30
   languageName: node
   linkType: hard
 
@@ -6184,6 +6206,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emailjs-com@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "emailjs-com@npm:3.2.0"
+  checksum: 10c0/3c6865ce89ebabeccd4f678fbd5f545f58482bb99fc23c17d9cebbf895705275df2da9c6fadaef8148397fe7fcc18cbbe49f9c720b5ad88b2dd6b82680ef169f
+  languageName: node
+  linkType: hard
+
 "emittery@npm:^0.10.2":
   version: 0.10.2
   resolution: "emittery@npm:0.10.2"
@@ -9991,6 +10020,7 @@ __metadata:
   resolution: "my-app@workspace:."
   dependencies:
     "@carbon/grid": "npm:^11.46.0"
+    "@carbon/icons-react": "npm:^11.71.0"
     "@carbon/styles": "npm:^1.95.0"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.6.3"
@@ -9998,6 +10028,8 @@ __metadata:
     "@testing-library/user-event": "npm:^13.2.1"
     carbon-components: "npm:10.58.15"
     carbon-components-react: "npm:8.67.0"
+    emailjs-com: "npm:^3.2.0"
+    identity-obj-proxy: "npm:^3.0.0"
     react: "npm:^19.2.0"
     react-dom: "npm:^19.2.0"
     react-router-dom: "npm:^7.9.6"
