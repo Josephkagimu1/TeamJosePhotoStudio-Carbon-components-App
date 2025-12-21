@@ -21,27 +21,29 @@ function Home() {
     if (!form.name || !form.email || !form.date) {
       alert("Please fill in all required fields");
       return;
-    } 
+    }
 
     // Emailjs code for working email
-    emailjs.send(
-    "service_e6weclj",
-    "template_fnalaln",
-    {
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      date: form.date,
-    },
-    "user_nGPqSzoWYlmQPCVPejEAd"
-  )
-  .then(() => {
-    alert("Booking sent successfully!");
-    setOpen(false);
-  })
-  .catch(() => {
-    alert("Failed to send booking. Try again.");
-  });
+    emailjs
+      .send(
+        process.env.REACT_APP_EMAILJS_SERVICE,
+        process.env.REACT_APP_EMAILJS_TEMPLATE,
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          date: form.date,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC
+      )
+
+      .then(() => {
+        alert("Booking sent successfully!");
+        setOpen(false);
+      })
+      .catch(() => {
+        alert("Failed to send booking. Try again.");
+      });
 
 
     console.log("Booking submitted:", form);
@@ -55,6 +57,10 @@ function Home() {
       {/* Hero Section */}
       <Grid fullWidth className="hero-section">
         <Column lg={8} md={4} sm={4}>
+          <h1 className="bx--type-expressive-heading-08">
+            Welcome to TeamJose PhotoStudio
+          </h1>
+          
           <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
             Capture Your Best Moments
           </h1>
@@ -64,10 +70,10 @@ function Home() {
           </p>
           <Button kind="primary" onClick={() => setOpen(true)}>Book a Session</Button>
         </Column>
-        <Column lg={8} md={4} sm={4} style={{width: 400}}>
+        <Column lg={8} md={4} sm={4} style={{ width: 400 }}>
           <Tile >
-            <img src={pic} alt="pic" style={{width: 400}} />
-            
+            <img src={pic} alt="pic" style={{ width: 400 }} />
+
           </Tile>
         </Column>
       </Grid>
@@ -81,7 +87,7 @@ function Home() {
         onRequestClose={() => setOpen(false)}
         onRequestSubmit={handleSubmit}
       >
-         <TextInput
+        <TextInput
           id="name"
           labelText="Full Name"
           value={form.name}
@@ -162,7 +168,7 @@ function Home() {
         </Column>
       </Grid>
 
-      
+
 
     </Content>
   );

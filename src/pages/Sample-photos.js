@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Content,
   Grid,
   Column,
   Tile,
   Button,
+  Modal,
 } from "carbon-components-react";
 import "carbon-components/css/carbon-components.min.css";
 
@@ -45,56 +46,81 @@ const images = [
     src: "/images/9.jfif",
     name: "Event-4.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/back (1).jfif",
     name: "background-1.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/back (1).jpg",
     name: "Event-1.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/back (2).jfif",
     name: "Event-1.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/back (2).jpg",
     name: "Event-1.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/back (3).jpg",
     name: "Event-1.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/Fotógrafo.jfif",
     name: "Event-1.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/Camera shutter Photos - Download Free High-Quality Pictures _ Freepik.jfif",
     name: "Event-1.jpg",
   },
-   {
+  {
     id: 4,
     src: "/images/back-b.jfif",
     name: "Event-1.jpg",
   },
-  
+
 ];
 
 export default function Gallery() {
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <Content>
       <h1 style={{ marginBottom: "1.5rem" }}>Gallery</h1>
-      <p style={{ marginBottom: "2rem" }}>
-        Browse our recent photography work. Tap an image to download.
-      </p>
+      <h2 style={{ marginBottom: "2rem" }}>
+        These are some of suggested images for you to use freely. Tap an image to download.
+      </h2>
+
+      <Modal
+        open={open}
+        modalHeading={selectedImage?.name}
+        primaryButtonText="Close"
+        onRequestClose={() => setOpen(false)}
+        onRequestSubmit={() => setOpen(false)}
+        passiveModal
+      >
+        {selectedImage && (
+          <img
+            src={selectedImage.src}
+            alt={selectedImage.name}
+            style={{
+              width: "100%",
+              maxHeight: "70vh",
+              objectFit: "contain",
+              borderRadius: "6px",
+            }}
+          />
+        )}
+      </Modal>
 
       <Grid fullWidth>
         {images.map((img) => (
@@ -111,16 +137,20 @@ export default function Gallery() {
                 }}
               />
 
-              <div
-                style={{
-                  marginTop: "0.75rem",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <span style={{ fontSize: "0.875rem" }}>{img.name}</span>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                {/* View Button */}
+                <Button
+                  kind="secondary"
+                  size="sm"
+                  onClick={() => {
+                    setSelectedImage(img);
+                    setOpen(true);
+                  }}
+                >
+                  View
+                </Button>
 
+                {/* Download Button */}
                 <Button
                   as="a"
                   href={img.src}
@@ -131,6 +161,7 @@ export default function Gallery() {
                   Download
                 </Button>
               </div>
+
             </Tile>
           </Column>
         ))}
