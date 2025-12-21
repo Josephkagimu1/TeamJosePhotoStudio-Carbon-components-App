@@ -54,10 +54,11 @@ function Home() {
 
   return (
     <Content style={{ marginTop: "2rem" }}>
+      
       {/* Hero Section */}
       <Grid fullWidth className="hero-section">
         <Column lg={8} md={4} sm={4}>
-          <h1 className="bx--type-expressive-heading-08">
+          <h1 className='home-h1'>
             Welcome to TeamJose PhotoStudio
           </h1>
           

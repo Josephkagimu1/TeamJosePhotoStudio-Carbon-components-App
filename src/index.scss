@@ -28,3 +28,48 @@ h1, p {
   word-break: break-word;
 }
 
+.home-h1 {
+  color: red;
+  font-weight: 1000;
+}
+
+// footer styling
+.carbon-footer {
+  background-color: #161616;
+  color: #f4f4f4;
+  padding: 3rem 1rem 1.5rem;
+  border-top: 1px solid #393939;
+}
+
+.footer-title {
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.footer-text {
+  color: #c6c6c6;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-link {
+  display: block;
+  color: #c6c6c6;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #393939;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #a8a8a8;
+}

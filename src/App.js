@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 import logo from './img/logo.png';
 // import './App.css';
 
@@ -24,6 +24,7 @@ import {
   Content,
   HeaderMenu
 } from 'carbon-components-react';
+import Footer from "./pages/Footer";
 
 const App = () => <HeaderContainer render={({
   isSideNavExpanded,
@@ -87,6 +88,8 @@ const App = () => <HeaderContainer render={({
 
       <Content id="main-content">
         <Routes>
+          <Route path="/" element={<Navigate to="/Home" replace />} />
+
           <Route path="/Home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Gallery />} />
@@ -98,6 +101,8 @@ const App = () => <HeaderContainer render={({
 
         </Routes>
       </Content>
+
+      <Footer />
 
     </Router>
 
