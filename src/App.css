@@ -9,3 +9,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}
